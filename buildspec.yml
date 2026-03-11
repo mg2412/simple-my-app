@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies
+
+  build:
+    commands:
+      - echo Deploying CloudFormation stack
+      - aws cloudformation deploy --template-file template.yaml --stack-name devops-cfn-stack --capabilities CAPABILITY_NAMED_IAM
+
+artifacts:
+  files:
+    - template.yaml
